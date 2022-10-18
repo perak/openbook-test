@@ -29,7 +29,7 @@ meteor
 
 OpenBook API key and artifact ID is hard-coded into source code!
 
-See here: ...
+See here: [https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7](https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7)
 
 
 ## Using the app
