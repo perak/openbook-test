@@ -1,0 +1,26 @@
+<template name="User">
+	<div class="main-heading py-2">
+		<h1>
+			{{currentRouteTitle}}
+		</h1>
+		<div class="actions">
+			{{#if routeCancelActionURL}}
+				<a href="{{routeCancelActionURL}}" class="btn btn-default" {{routeCancelActionVisible}}>
+					{{#if routeCancelActionTitle}}
+						{{routeCancelActionTitle}}
+					{{else}}
+						<i class="mdi mdi-window-close"></i>&nbsp;Close
+					{{/if}}
+				</a>
+			{{/if}}
+
+			{{#if routeDefaultActionURL}}
+				<a href="{{routeDefaultActionURL}}" class="btn btn-success" {{routeDefaultActionVisible}}>
+					{{routeDefaultActionTitle}}
+				</a>
+			{{/if}}
+		</div>
+	</div>
+
+	{{> Template.dynamic template=UserSubcontent}}
+</template>

@@ -1,0 +1,103 @@
+<template name="Chat">
+
+<div class="card mt-3 mb-0" style="flex-flow: column; height: calc(100vh - 160px);">
+	<div class="card-body conversation-list" style="height: 100%; overflow: auto;">
+
+		{{#if dataReady}}
+			{{#each chatHistory}}
+
+				{{#if equal type "query"}}
+					<div class="clearfix odd pt-1 pb-1">
+						<div class="chat-avatar">
+							<img src="/images/users/avatar-1.jpeg" class="rounded" alt="me">
+							<i>{{formatDate createdAt "HH:mm"}}</i>
+						</div>
+
+						<div class="conversation-text float-end">
+							<div class="ctext-wrap">
+						    	<i>{{currentUserEmailOrUsername}}</i>
+
+							    <p>
+									{{text}}
+							    </p>
+							</div>
+						</div>
+					</div>
+				{{/if}}
+
+
+				{{#if equal type "error"}}
+					<div class="clearfix pt-1 pb-1">
+						<div class="chat-avatar">
+							<img src="/images/users/avatar-bot.jpg" class="rounded" alt="bot">
+							<i>{{formatDate createdAt "HH:mm"}}</i>
+						</div>
+
+						<div class="conversation-text">
+							<div class="ctext-wrap">
+						    	<i>OpenBook</i>
+
+							    <p class="text-danger">
+									{{text}}
+							    </p>
+							</div>
+						</div>
+					</div>
+				{{/if}}
+
+
+				{{#if equal type "answer"}}
+					<div class="clearfix pt-1 pb-1">
+						<div class="chat-avatar">
+							<img src="/images/users/avatar-bot.jpg" class="rounded" alt="bot">
+							<i>{{formatDate createdAt "HH:mm"}}</i>
+						</div>
+
+						<div class="conversation-text">
+							<div class="ctext-wrap">
+						    	<i>OpenBook</i>
+
+							    <p>
+									{{text}}
+							    </p>
+							</div>
+						</div>
+					</div>
+
+					<div class="pb-1">
+						Answer is <a href="#" class="grade-button btn btn-sm {{buttonColor 'correct'}}" data-grade="correct">Correct</a>&nbsp;/&nbsp;<a href="#" class="grade-button btn btn-sm {{buttonColor 'wrong'}}" data-grade="wrong">Wrong</a>
+					</div>
+				{{/if}}
+
+
+			{{/each}}
+		{{else}}
+			Loading history...
+		{{/if}}
+
+	</div>
+
+
+	<div class="card-body bg-light" style="flex-grow: 1;">
+
+		<form class="chat-form" novalidate="" name="chat-form" id="chat-form">
+			<div class="row">
+				<div class="col mb-2 mb-sm-0">
+					<input type="text" name="message" class="form-control" placeholder="Ask your book a question..." required="">
+					<div class="invalid-feedback">
+						Ask your book a question...
+					</div>
+				</div>
+				<div class="col-sm-auto">
+					<div class="btn-group">
+						<div class="d-grid">
+							<button type="submit" class="btn btn-success chat-send"><i class="uil uil-message"></i></button>
+						</div>
+					</div>
+				</div> <!-- end col -->
+			</div> <!-- end row-->
+		</form>
+	</div>
+</div>
+
+</template>

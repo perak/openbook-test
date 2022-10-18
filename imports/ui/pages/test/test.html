@@ -1,0 +1,58 @@
+<template name="Test">
+	<h1>Test</h1>
+	<div class="card">
+		<div class="card-body">
+			<a class="btn btn-primary perform-test">
+				{{#if waitingTest}}
+					<i class="mdi mdi-spin mdi-loading"></i>&nbsp;
+				{{/if}}
+				Refresh
+			</a>
+		</div>
+		<div class="card-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							&nbsp;
+						</th>
+						<th>
+							Query
+						</th>
+						<th>
+							Answer
+						</th>
+						<th>
+							Grade
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				{{#each testData}}
+					<tr>
+						<td>
+							{{#if equal status "waiting"}}
+								<i class="mdi mdi-spin mdi-loading"></i>
+							{{else}}
+								<i class="mdi mdi-record {{statusIconClass}}"></i>
+							{{/if}}
+						</td>
+
+						<td>
+							{{query}}
+						</td>
+
+						<td>
+							{{answer}}
+						</td>
+
+						<td>
+							{{grade}}
+						</td>
+					</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</template>

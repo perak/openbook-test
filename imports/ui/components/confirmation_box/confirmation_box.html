@@ -1,0 +1,22 @@
+<template name="ConfirmationBox">
+	<div id="{{boxId}}" class="modal fade" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h4 class="modal-title" id="standard-modalLabel">{{title}}</h4>
+	                <button type="button" class="btn-close button-cancel"></button>
+	            </div>
+	            <div class="modal-body">
+	                {{message}}
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-primary button-approve mx-1">{{approveButtonTitle}}</button>
+	                <button type="button" class="btn btn-light button-deny mx-1">{{denyButtonTitle}}</button>
+	                {{#if showCancelButton}}
+	                	<button type="button" class="btn btn-light button-cancel mx-1">{{cancelButtonTitle}}</button>
+	                {{/if}}
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</template>

@@ -1,0 +1,89 @@
+<template name="UserProfile">
+	{{#if dataReady}}
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="mb-3">Personal data</h4>
+
+						<form autocomplete="off" id="profile-info-form">
+							<div class="mb-3">
+								<label for="email" class="form-label">Email address</label>
+								<p>
+									{{currentUserEmailOrUsername}}
+								</p>
+							</div>
+
+							<div class="mb-3">
+								<label for="username" class="form-label">Username</label>
+								<p>
+									{{user.username}}
+								</p>
+							</div>
+
+							<div class="mb-3">
+								<label for="role" class="form-label">Role</label>
+								<p class="text-capitalize">
+									{{currentUserRoles}}
+								</p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="mb-3">Change password</h4>
+
+						<form autocomplete="off" id="change-password-form">
+							<div class="mb-3">
+								<label for="oldPassword" class="form-label">Old Password</label>
+								<input class="form-control" type="password" name="oldPassword" required>
+							</div>
+
+							<div class="mb-3">
+								<label for="newPassword" class="form-label">New Password</label>
+								<input class="form-control" type="password" name="newPassword" required>
+							</div>
+
+							<div class="mb-3">
+								<label for="newPasswordRepeat" class="form-label">Repeat New Password</label>
+								<input class="form-control" type="password" name="newPasswordRepeat" required>
+							</div>
+
+	                        {{#if errorMessage}}
+	                            <div class="alert alert-warning bg-warning text-white border-0">
+	                            	{{errorMessage}}
+	                            </div>
+	                        {{/if}}
+
+	                        {{#if successMessage}}
+	                            <div class="alert alert-success">
+	                            	{{successMessage}}
+	                            </div>
+	                        {{/if}}
+
+	                        <div class="mt-4 mb-3 text-center">
+	                            <button class="btn btn-success mx-1" type="submit">
+									{{#if submitting}}
+										<i class="mdi mdi-spin mdi-loading"></i>
+									{{else}}
+										Save
+									{{/if}}
+	                        	</button>
+	                        </div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{{else}}
+		<div class="d-flex justify-content-center">
+			<div class="spinner-border" role="status"></div>
+		</div>
+	{{/if}}
+
+</template>
