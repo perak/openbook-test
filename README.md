@@ -27,7 +27,7 @@ meteor
 
 ## **WARNING**
 
-OpenBook API key and artifact ID is hard-coded into source code!
+OpenBook API key is hard-coded into source code!
 
 See here: [https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7](https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7)
 
