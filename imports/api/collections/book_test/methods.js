@@ -18,7 +18,12 @@ Meteor.methods({
 		return BookTest.upsert( selector, { $set: data });
 	},
 
-	async performTest() {
+	async performTest(artifactId) {
+		// If artifact ID is not provided, use latest artifact
+		if(!artifactId) {
+			artifactId = Meteor.call("latestArtifactId");
+		}
+
 		// Clear user's test collection
 		BookTest.remove({ createdBy: this.userId });
 
@@ -38,7 +43,7 @@ Meteor.methods({
 
 			let newAnswer = null;
 			try {
-				newAnswer = Meteor.call("sendMessage", questionText);
+				newAnswer = Meteor.call("sendMessage", questionText, artifactId);
 			} catch(e) {
 				console.log(e);				
 			}

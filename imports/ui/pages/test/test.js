@@ -55,7 +55,12 @@ Template.Test.helpers({
 	},
 
 	"statusIconClass": function() {
-		return this.grade == "correct" ? "text-success" : "text-danger";
+		let iconClass = "";
+		switch(this.grade) {
+			case "correct": iconClass = "text-success"; break;
+			case "wrong": iconClass = "text-danger"; break;
+		}
+		return iconClass;
 	},
 
 	"waitingTest": function() {

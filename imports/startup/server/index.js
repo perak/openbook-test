@@ -1,6 +1,6 @@
 import "./accounts.js";
 import "./collections.js";
-import "./chat.js";
+import "./openbook.js";
 import "./fixtures.js";
 
 Meteor.startup(function() {
