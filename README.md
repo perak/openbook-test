@@ -29,7 +29,7 @@ meteor
 
 OpenBook API key is hard-coded into source code!
 
-See here: [https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7](https://github.com/perak/openbook-test/blob/master/imports/startup/server/chat.js#L7)
+See here: [https://github.com/perak/openbook-test/blob/master/imports/startup/server/openbook.js#L5](https://github.com/perak/openbook-test/blob/master/imports/startup/server/openbook.js#L5)
 
 
 ## Using the app
